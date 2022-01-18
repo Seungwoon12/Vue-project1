@@ -12,7 +12,7 @@
 
 
 
-  <Modal/>
+  <Modal @closeModal="모달창열렸니 = false"  :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/> <!-- :작명="데이터 이름"   // 보통 작명을 데이터 이름과 같게함--> 
 
   <div class="menu">
     <a v-for="(m, i) in menu" :key="i">{{m}}</a>
@@ -20,11 +20,9 @@
 
   <discount/>
 
-  <div v-for="(o, i) in 원룸들" :key="i">
-    <img :src="o.image" class="room-img">
-    <h4 @click="모달창열렸니 = true; 누른거 = i">{{o.title}}</h4>
-    <p>{{o.price}}원</p>
-  </div>
+  <Card @openModal="모달창열렸니 = true; 누른거 = $event" :원룸="원룸들[i]" v-for="(원룸, i) in 원룸들" :key="i"/>
+
+
 
 </template>
 
@@ -33,11 +31,13 @@
 import data from './assets/oneroom.js';
 import Discount from './Discount.vue';
 import Modal from './Modal.vue';
+import Card from './Card.vue';
 
 export default {
   name: 'App',
   data() {
     return {
+      오브젝트: {name: "kim", age: 20},
       누른거: 0,
       원룸들: data,
       모달창열렸니: false,
@@ -53,7 +53,9 @@ export default {
   },
   components: {
     Discount : Discount,
-    Modal : Modal
+    Modal : Modal,
+    Card: Card,
+
   }
 }
 </script>
