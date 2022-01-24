@@ -88,6 +88,11 @@ export default {
     }
   },
 
+  // created는 html 생성 전, 데이터만 존재하는 상황
+  created() {
+    
+  },
+  // App.vue가 mount 되고나서 코드 실행해줘라~~ cf) vue 라이프사이클에 관하여 자세히 공부 해보기(공식 문서 참고)
   mounted() {
     setTimeout(() => {
       this.showDiscount = false; // this를 사용하는 경우 에로우() 함수를 사용해야 에러가 안남
