@@ -30,7 +30,10 @@
 <br>
 <router-link to="/list">리스트 페이지</router-link>
 
-<router-view :blogContents="blogContents"></router-view>
+<div class="mt-4">
+  <router-view :blogContents="blogContents"></router-view>
+</div>
+
 
 
 <!-- <List :blogContents="blogContents"/> -->   

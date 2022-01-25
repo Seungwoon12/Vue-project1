@@ -21,14 +21,20 @@ export default {
     },
     watch: {
       month(input) {
-        // if(input >= 13) {
-        //   alert('13이상 입력하지 마셈');
-        //   this.month = origin;
-        // }
+       
+        var str_space = /\s/; // 정규표현식 공백
+
         if(isNaN(input)) {
             alert('숫자 입력해라~~');
             this.month = 1;
-          }
+
+          } 
+        else if(str_space.exec(input)) {
+          alert('공백 입력하지마라 짜슥아!');
+          this.month = input.replace(' ', '');
+        }
+        
+
       }
     },
     props: {
